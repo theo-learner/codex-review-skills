@@ -26,7 +26,7 @@ description: Use when you want Codex to independently review code, a plan, or a 
 ## Step 1: Prerequisites 확인
 
 ```bash
-command -v codex >/dev/null 2>&1 || echo "ERROR: codex not installed. Run: npm install -g @openai/codex"
+command -v codex >/dev/null 2>&1 || { echo "ERROR: codex not installed. Run: npm install -g @openai/codex"; exit 1; }
 ```
 
 오류가 있으면 해당 메시지를 출력하고 중단한다.
@@ -105,6 +105,13 @@ find "$ARGUMENTS" -name "*.md" | sort | xargs cat > /tmp/review-input.md
 cat "$ARGUMENTS" > /tmp/review-input.md
 
 CONTENT=$(cat /tmp/review-input.md)
+
+# 타입 자동 감지
+case "$ARGUMENTS" in
+  *PLAN*.md|*-PLAN.md) TYPE="plan" ;;
+  *-design.md|*spec*|*SPEC*|*ROADMAP*|*REQUIREMENTS*) TYPE="doc" ;;
+  *) TYPE="doc" ;;
+esac
 ```
 
 ## Step 3: Codex 호출
