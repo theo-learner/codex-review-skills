@@ -1,0 +1,8 @@
+{
+  "name": "codex-review-skills",
+  "version": "1.0.0",
+  "description": "Two skills for structured Codex review: /prep-review prepares context, /codex-review calls Codex CLI",
+  "author": { "name": "theo-learner" },
+  "repository": "https://github.com/theo-learner/codex-review-skills",
+  "license": "MIT"
+}
