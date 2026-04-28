@@ -190,6 +190,8 @@ esac
 **code 타입:**
 ```bash
 codex exec --skip-git-repo-check "
+IMPORTANT: Do NOT read any files or execute any shell commands. Work only from the provided context and diff below.
+
 ${CONTENT}
 
 ## Actual Changes (git diff)
@@ -213,6 +215,8 @@ Output structured markdown.
 **plan 타입:**
 ```bash
 codex exec --skip-git-repo-check "
+IMPORTANT: Do NOT read any files or execute any shell commands. Work only from the provided content below.
+
 ${CONTENT}
 
 Review this implementation plan. Provide structured feedback:
@@ -229,6 +233,8 @@ Output structured markdown.
 **doc 타입:**
 ```bash
 codex exec --skip-git-repo-check "
+IMPORTANT: Do NOT read any files or execute any shell commands. Work only from the provided content below.
+
 ${CONTENT}
 
 Review this document. Provide structured feedback:
